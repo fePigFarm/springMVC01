@@ -11,6 +11,20 @@
     <title>我是标题</title>
   </head>
   <body>
-    <a href="welcome">欢迎点击！！！</a>
+    <a href="promotion/welcome">欢迎点击！！！</a> <br/>
+    <a href="promotion/welcome/abc">欢迎点击！！！</a><br/>
+    <a href="promotion/welcome/sdfgfdsd/abc">欢迎点击！！！</a><br/>
+    <a href="promotion/welcome/sdfg/fd/sd/abc">欢迎点击！！！</a><br/>
+    <a href="promotion/welcome/zs">传递参数</a><br/>
+
+    <form action="promotion/add" method="post">
+      <input type="text" value="yang" name="yang">
+      <button type="submit">提交</button>
+    </form>
+
+    <form action="promotion/add" method="post">
+      <input type="text" value="杨" name="yang">
+      <button type="submit">提交 -- 并且name是yang，value是杨</button>
+    </form>
   </body>
 </html>
