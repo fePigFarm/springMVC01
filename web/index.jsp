@@ -39,6 +39,8 @@
       家庭地址:<input name="address.homeAddress" type="text" /><br/>
       学校地址:<input name="address.schoolAddress" type="text" /><br/>
       <input type="submit" value="查">
-    </form>
+    </form><br/>
+
+    <a href="promotion/testI18n">国际化</a><br/>
   </body>
 </html>

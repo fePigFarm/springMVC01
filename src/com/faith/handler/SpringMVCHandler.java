@@ -86,4 +86,9 @@ public class SpringMVCHandler {
         return "success" ;
     }
 
+    @RequestMapping("testI18n")
+    public String testI18n() {
+        return "success";
+    }
+
 }
