@@ -20,11 +20,25 @@
     <form action="promotion/add" method="post">
       <input type="text" value="yang" name="yang">
       <button type="submit">提交</button>
-    </form>
+    </form><br/>
 
     <form action="promotion/add" method="post">
       <input type="text" value="杨" name="yang">
       <button type="submit">提交 -- 并且name是yang，value是杨</button>
+    </form><br/>
+
+    <form action="promotion/testParam" method="post">
+      <input type="text" value="yang" name="yang">
+      <input type="text" value="18" name="age">
+      <button type="submit">提交 -- 参数形式</button>
+    </form><br/>
+
+    <form action="promotion/testObjectProperties" method="post">
+      name:<input name="name" type="text" /><br/>
+      age:<input name="age" type="text" /><br/>
+      家庭地址:<input name="address.homeAddress" type="text" /><br/>
+      学校地址:<input name="address.schoolAddress" type="text" /><br/>
+      <input type="submit" value="查">
     </form>
   </body>
 </html>

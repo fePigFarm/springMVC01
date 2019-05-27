@@ -1,10 +1,12 @@
 package com.faith.handler;
 
+import com.faith.entity.Student;
 import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Auther: yangguoqiang01
@@ -50,4 +52,38 @@ public class SpringMVCHandler {
         System.out.println(name);
         return "success";
     }
+
+    // 通过RequestParam拿到参数
+    @RequestMapping(value = "testParam")
+    public String testParam(@RequestParam("yang") String yang,
+                            @RequestParam(value = "age", required = false, defaultValue = "23") Integer age) {
+        System.out.println(yang);
+        System.out.println(age);
+        return "success";
+    }
+
+    @RequestMapping(value = "testObjectProperties")
+    public String  testObjectProperties(Student student) {
+        // student属性 必须 和 form表单中的属性Name值一致（支持级联属性）
+		/*
+		    过去的做法：
+			String name = 	request.getParameter("name");
+		    int age= Integer.parseInt(request.getParameter("age")s)	;
+		    String haddrss = 	request.getParameter("homeaddress");
+		    String saddress = 	request.getParameter("schooladdress");
+		    Address address = new Address();
+		    address.setHomeAddress(haddrss);
+		    address.setSchoolAddress(saddress);
+
+			Student student = new Student();
+			student.setName(name);
+			student.setAddress(address);
+		*/
+        System.out.println(student.getAge()+","
+                +student.getName()+","+
+                student.getAddress().getHomeAddress()+","+
+                student.getAddress().getSchoolAddress());
+        return "success" ;
+    }
+
 }
