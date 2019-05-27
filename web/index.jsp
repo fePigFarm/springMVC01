@@ -41,6 +41,8 @@
       <input type="submit" value="查">
     </form><br/>
 
-    <a href="promotion/testI18n">国际化</a><br/>
+    <%--<a href="promotion/testI18n">国际化</a><br/>--%>
+
+    <a href="promotion/testMvcViewController">解析器</a><br/>
   </body>
 </html>

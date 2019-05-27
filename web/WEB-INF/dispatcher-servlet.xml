@@ -25,7 +25,16 @@
 
     <!-- 加载国际化资源文件 -->
     <!--springmvc在启动时，会自动查找一个id="messageSource"的bean，如果有  则自动加载-->
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="i18n"></property>
-    </bean>
+    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
+        <!--<property name="basename" value="i18n"></property>-->
+    <!--</bean>-->
+    
+    <mvc:view-controller path="promotion/testMvcViewController" view-name="success"></mvc:view-controller>
+
+
+    <!--springmvc处理静态资源  当没有对应的mapping时候交给servlet-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+
+    <!--基础配置，共存-->
+    <mvc:annotation-driven></mvc:annotation-driven>
 </beans>
