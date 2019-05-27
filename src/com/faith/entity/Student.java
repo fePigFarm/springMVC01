@@ -1,5 +1,9 @@
 package com.faith.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 /**
  * @Auther: yangguoqiang01
  * @Date: 2019-05-27
@@ -10,6 +14,17 @@ public class Student {
     private String name;
     private int age;
     private Address address;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
     public String getName() {
         return name;

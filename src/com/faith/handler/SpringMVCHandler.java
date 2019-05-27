@@ -3,10 +3,14 @@ package com.faith.handler;
 import com.faith.entity.Student;
 import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.net.BindException;
 
 /**
  * @Auther: yangguoqiang01
@@ -88,6 +92,17 @@ public class SpringMVCHandler {
 
     @RequestMapping("testI18n")
     public String testI18n() {
+        return "success";
+    }
+
+    @RequestMapping("testDateFormat")
+    public String testDateFormat(Student student, BindingResult result) {
+        if(result.getErrorCount() >0) {
+            for(FieldError error:  result.getFieldErrors() ) {
+                System.out.println(error.getDefaultMessage());
+            }
+        }
+        System.out.println(student.getName() + student.getBirthday());
         return "success";
     }
 

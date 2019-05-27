@@ -44,5 +44,13 @@
     <%--<a href="promotion/testI18n">国际化</a><br/>--%>
 
     <a href="promotion/testMvcViewController">解析器</a><br/>
+
+
+    <form action="promotion/testDateFormat" method="post">
+        姓名：<input type="text" name="name">
+        年龄：<input type="text" name="age">
+        出生日期：<input type="text" name="birthday">
+        <button type="submit">学生日期</button>
+    </form><br/>
   </body>
 </html>
