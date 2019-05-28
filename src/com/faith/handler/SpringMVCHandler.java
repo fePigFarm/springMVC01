@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.net.BindException;
+import java.util.Map;
 
 /**
  * @Auther: yangguoqiang01
@@ -96,10 +98,11 @@ public class SpringMVCHandler {
     }
 
     @RequestMapping("testDateFormat")
-    public String testDateFormat(Student student, BindingResult result) {
-        if(result.getErrorCount() >0) {
+    public String testDateFormat(@Valid Student student, BindingResult result, Map<String, Object> map) {
+        if(result.getErrorCount() > 0) {
             for(FieldError error:  result.getFieldErrors() ) {
-                System.out.println(error.getDefaultMessage());
+                map.put("errors", result.getFieldErrors());  // 将错误信息传入request域中
+                System.out.println(error.getDefaultMessage().getClass());
             }
         }
         System.out.println(student.getName() + student.getBirthday());

@@ -2,6 +2,7 @@ package com.faith.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 /**
@@ -14,8 +15,9 @@ public class Student {
     private String name;
     private int age;
     private Address address;
-    
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+    @Past // 当前时间以前
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // 数据格式化
     private Date birthday;
 
     public Date getBirthday() {
