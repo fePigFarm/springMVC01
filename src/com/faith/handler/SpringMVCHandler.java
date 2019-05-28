@@ -1,17 +1,17 @@
 package com.faith.handler;
 
+import com.faith.entity.People;
 import com.faith.entity.Student;
 import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.BindException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -105,8 +105,24 @@ public class SpringMVCHandler {
                 System.out.println(error.getDefaultMessage().getClass());
             }
         }
-        System.out.println(student.getName() + student.getBirthday());
+        System.out.println(student.getName() + student.getBirthday() + student.getEmail());
         return "success";
+    }
+
+    @ResponseBody // 告诉springMVC此时的返回值是一个ajax返回值，返回给调用地方
+    @RequestMapping(value = "testJson")
+    public List<People> testJson() {
+        People people1 = new People("黑人", 34);
+        People people2 = new People("拜仁", 12);
+        People people3 = new People("黄人", 14);
+        List<People> list = new ArrayList<>();
+        list.add(people1);
+        list.add(people2);
+        list.add(people3);
+        for(People item: list) {
+            System.out.println(item.getName());
+        }
+        return list;
     }
 
 }

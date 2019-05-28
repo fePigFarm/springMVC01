@@ -1,5 +1,6 @@
 package com.faith.entity;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Past;
@@ -19,6 +20,17 @@ public class Student {
     @Past // 当前时间以前
     @DateTimeFormat(pattern = "yyyy-MM-dd") // 数据格式化
     private Date birthday;
+
+    @Email
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Date getBirthday() {
         return birthday;

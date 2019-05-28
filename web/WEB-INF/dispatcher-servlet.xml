@@ -22,6 +22,9 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!--基础配置，共存  万用的  静动态  走不走mapping都是它控制-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
 
     <!-- 加载国际化资源文件 -->
     <!--springmvc在启动时，会自动查找一个id="messageSource"的bean，如果有  则自动加载-->
@@ -29,14 +32,13 @@
         <!--<property name="basename" value="i18n"></property>-->
     <!--</bean>-->
     
-    <mvc:view-controller path="promotion/testMvcViewController" view-name="success"></mvc:view-controller>
+    <!--<mvc:view-controller path="promotion/testMvcViewController" view-name="success"></mvc:view-controller>-->
 
 
     <!--springmvc处理静态资源  当没有对应的mapping时候交给servlet-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
 
-    <!--基础配置，共存  万用的  静动态  走不走mapping都是它控制-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+
 
 
     <!-- 配置 数据格式化 注解 所依赖的bean -->
