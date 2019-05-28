@@ -7,8 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.BindException;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,6 +128,32 @@ public class SpringMVCHandler {
             System.out.println(item.getName());
         }
         return list;
+    }
+
+    @RequestMapping(value="testUpload") //abc.png
+    public String testUpload(@RequestParam("desc") String desc,
+                             @RequestParam("file") MultipartFile file  ) throws IOException {
+
+        System.out.println("文件描述信息："+desc);
+        //jsp中上传的文件：file
+
+        InputStream input = file.getInputStream() ;//IO
+        String fileName = file.getOriginalFilename() ;
+
+        OutputStream out = new FileOutputStream("/faith/ff/output/"+fileName) ;
+
+
+        byte[] bs = new byte[1024];
+        int len = -1;
+        while(( len = input.read(bs)) !=-1 ) {
+            out.write(bs, 0, len);
+        }
+        out.close();
+        input.close();
+        //将file上传到服务器中的 某一个硬盘文件中
+        System.out.println("上传成功！");
+
+        return "success";
     }
 
 }

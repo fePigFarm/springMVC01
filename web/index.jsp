@@ -72,5 +72,11 @@
     </form><br/>
 
   <input type="button" value="testJson" id="testJson" /><br/>
+
+  <form action="promotion/testUpload" method="post"  enctype="multipart/form-data">
+    <input type="file" name="file" />
+    描述:<input name="desc" type="text" />
+    <input type="submit" value="上传">
+  </form>
   </body>
 </html>
