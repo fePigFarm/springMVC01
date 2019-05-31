@@ -116,7 +116,7 @@ public class SpringMVCHandler {
 
     @ResponseBody // 告诉springMVC此时的返回值是一个ajax返回值，返回给调用地方
     @RequestMapping(value = "testJson")
-    public List<People> testJson() {
+    public People testJson() {
         People people1 = new People("黑人", 34);
         People people2 = new People("拜仁", 12);
         People people3 = new People("黄人", 14);
@@ -127,33 +127,34 @@ public class SpringMVCHandler {
         for(People item: list) {
             System.out.println(item.getName());
         }
-        return list;
+
+        return people1;
     }
 
-    @RequestMapping(value="testUpload") //abc.png
-    public String testUpload(@RequestParam("desc") String desc,
-                             @RequestParam("file") MultipartFile file  ) throws IOException {
-
-        System.out.println("文件描述信息："+desc);
-        //jsp中上传的文件：file
-
-        InputStream input = file.getInputStream() ;//IO
-        String fileName = file.getOriginalFilename() ;
-
-        OutputStream out = new FileOutputStream("/faith/ff/output/"+fileName) ;
-
-
-        byte[] bs = new byte[1024];
-        int len = -1;
-        while(( len = input.read(bs)) !=-1 ) {
-            out.write(bs, 0, len);
-        }
-        out.close();
-        input.close();
-        //将file上传到服务器中的 某一个硬盘文件中
-        System.out.println("上传成功！");
-
-        return "success";
-    }
+//    @RequestMapping(value="testUpload") //abc.png
+//    public String testUpload(@RequestParam("desc") String desc,
+//                             @RequestParam("file") MultipartFile file  ) throws IOException {
+//
+//        System.out.println("文件描述信息："+desc);
+//        //jsp中上传的文件：file
+//
+//        InputStream input = file.getInputStream() ;//IO
+//        String fileName = file.getOriginalFilename() ;
+//
+//        OutputStream out = new FileOutputStream("/faith/ff/output/"+fileName) ;
+//
+//
+//        byte[] bs = new byte[1024];
+//        int len = -1;
+//        while(( len = input.read(bs)) !=-1 ) {
+//            out.write(bs, 0, len);
+//        }
+//        out.close();
+//        input.close();
+//        //将file上传到服务器中的 某一个硬盘文件中
+//        System.out.println("上传成功！");
+//
+//        return "success";
+//    }
 
 }
